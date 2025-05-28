@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses - Edu-Hack</title>
+  <link rel="icon" type="image/.png" href="Edu.png">
+  <style>
+    :root {
+      --dark-bg: #0d1b2a;
+      --mid-bg: #1b263b;
+      --accent: #6b48ff;
+      --accent-light: #a07cfa;
+      --text-light: #e0e0e0;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      background-color: var(--accent);
+      padding: 12px 30px;
+      border-radius: 0 0 12px 12px;
+    }
+
+    #logo {
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+    #name {
+      font-size: 22px;
+      font-weight: 700;
+      flex: 1;
+    }
+
+    nav p {
+      margin: 0 10px;
+    }
+
+    #navLink {
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+    }
+
+    .courses-section {
+      margin: 80px auto;
+      max-width: 1200px;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      margin-bottom: 80px;
+      color: var(--accent-light);
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .course-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 80px;
+    }
+
+    .course-text, .course-list {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .course-text h2 {
+      color: var(--accent-light);
+      margin-bottom: 15px;
+      font-size: 28px;
+    }
+
+    .course-text p {
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .course-list div {
+      background-color: var(--mid-bg);
+      border-left: 4px solid var(--accent);
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid #333;
+    }
+
+    th {
+      font-weight: 600;
+    }
+
+    thead {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #1f2633;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #2a3147;
+    }
+
+    #courseCategory {
+      font-size: 28px;
+      margin: 60px 0 30px;
+      text-align: center;
+      color: var(--accent-light);
+      font-weight: 600;
+    }
+
+    ul.categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul.categories li {
+      background-color: #1b263b;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 50px;
+      margin-top: 80px;
+      font-size: 15px;
+      background-color: #081229;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html"><img id="logo" src="Edu.png" alt="Edu-Hack Logo"></a>
+    <p id="name">Edu-Hack</p>
+    <p><a id="navLink" href="index.html">Home</a></p>
+    <p><a id="navLink" href="Courses.html">Courses</a></p>
+    <p><a id="navLink" href="Form.html" target="_blank">Register</a></p>
+  </nav>
+
+  <div class="container">
+    <section class="courses-section">
+      <h2 class="section-title">Explore Our Courses</h2>
+
+      <div class="course-row">
+        <div class="course-text">
+          <h2>Top Picks</h2>
+          <p>Our most sought-after courses, crafted to equip you with cutting-edge tech skills for today’s industry.</p>
+        </div>
+        <div class="course-list">
+          <div>
+            <h3>Cloud Architecture</h3>
+            <p>Design scalable systems with AWS, Azure, and DevOps tools.</p>
+          </div>
+          <div>
+            <h3>Cybersecurity Essentials</h3>
+            <p>Master ethical hacking, penetration testing, and security protocols.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-row">
+        <div class="course-text">
+          <h2>Full Catalog</h2>
+          <p>Dive into our extensive range of courses to advance your career in technology and innovation.</p>
+        </div>
+        <div class="course-list">
+          <table>
+            <thead>
+              <tr>
+                <th>Course Name</th>
+                <th>Category</th>
+                <th>Duration</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Advanced JavaScript & Node.js</td>
+                <td>Web Development</td>
+                <td>6 Weeks</td>
+                <td>₹999</td>
+              </tr>
+              <tr>
+                <td>AI & Neural Networks</td>
+                <td>Artificial Intelligence</td>
+                <td>8 Weeks</td>
+                <td>₹1499</td>
+              </tr>
+              <tr>
+                <td>Cloud-Native Development</td>
+                <td>Cloud Computing</td>
+                <td>5 Weeks</td>
+                <td>₹1999</td>
+              </tr>
+              <tr>
+                <td>UX Research & Design</td>
+                <td>UI/UX Design</td>
+                <td>4 Weeks</td>
+                <td>₹1200</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h2 id="courseCategory">Courses Available</h2>
+      <ul class="categories">
+        <li>Web Development</li>
+        <li>Artificial Intelligence</li>
+        <li>Cloud Computing</li>
+        <li>Cybersecurity</li>
+        <li>UI/UX Design</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 Edu-Hack. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edu-Hack</title>
+    <link rel="icon" type="image/.png" href="Edu.png">
+    <style>
+        :root {
+            --dark-bg: #0d1b2a;
+            --mid-bg: #1b263b;
+            --accent: #6b48ff;
+            --accent-light: #a07cfa;
+            --text-light: #e0e0e0;
+        }
+            
+        body {
+            margin: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            background-color: var(--accent);
+            padding: 12px 30px;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 2px 8px rgba(107, 72, 255, 0.3);
+        }
+
+        #logo {
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        #name {
+            font-size: 22px;
+            font-weight: 700;
+            flex: 1;
+        }
+
+        nav p {
+            margin: 0 10px;
+        }
+
+        #navLink {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        #navLink:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero button {
+            background-color: var(--accent-light);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 8px rgba(107, 72, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero button:hover {
+            background-color: var(--accent);
+        }
+
+        .hero button a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+        }
+
+        .container {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .features {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .features h3 {
+            font-size: 28px;
+            color: var(--accent-light);
+            margin-bottom: 12px;
+        }
+
+        .features p {
+            font-size: 18px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            padding: 0 20px;
+        }
+
+        .grid article {
+            background-color: var(--mid-bg);
+            border: 1px solid #3a4260;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 260px;
+            text-align: center;
+        }
+
+        .grid article h3 {
+            color: var(--accent-light);
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .grid article p {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+            font-size: 14px;
+            background-color: #081229;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html"><img id="logo" src="Edu.png" alt="Edu-Hack Logo"></a>
+        <p id="name">Edu-Hack</p>
+        <p><a id="navLink" href="index.html">Home</a></p>
+        <p><a id="navLink" href="Courses.html">Courses</a></p>
+        <p><a id="navLink" href="Form.html" target="_blank">Register</a></p>
+    </nav>
+    <section class="hero">
+        <h1>Welcome to Edu-Hack</h1>
+        <p>Unlock your potential with Edu-Hack, the ultimate platform for mastering technology, coding, and innovation. Dive into a world of learning designed to empower you with skills for the future.</p>
+        <button><a href="Courses.html" id="courseLink">Discover Courses</a></button>
+    </section>
+    <div class="container">
+        <section class="features">
+            <h3>What We Offer</h3>
+            <p>Explore the unique advantages that set Edu-Hack apart in tech education</p>
+        </section>
+
+        <section class="grid">
+            <article>
+                <h3>Expert-Led Courses</h3>
+                <p>Gain skills from industry experts at leading tech companies, ensuring you learn what matters most.</p>
+            </article>
+            <article>
+                <h3>Practical Projects</h3>
+                <p>Develop real-world applications through hands-on, guided projects and collaborative coding experiences.</p>
+            </article>
+            <article>
+                <h3>Flexible Learning</h3>
+                <p>Access our courses 24/7, allowing you to learn at your own pace, anytime, anywhere in the world.</p>
+            </article>
+            <article>
+                <h3>Community Support</h3>
+                <p>Join a vibrant community of learners and mentors to collaborate, share ideas, and grow together.</p>
+            </article>
+            <article>
+                <h3>Career Guidance</h3>
+                <p>Receive personalized career advice and resources to help you land your dream tech job.</p>
+            </article>
+            <article>
+                <h3>Certification Programs</h3>
+                <p>Earn industry-recognized certifications to boost your credibility and career prospects.</p>
+            </article>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Edu-Hack. All rights reserved.</p>
+    </footer>
+</body>
+</html>

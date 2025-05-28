@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - Edu-Hack</title>
+  <style>
+    :root {
+      --dark-bg: #0d1b2a;
+      --mid-bg: #1b263b;
+      --accent: #6b48ff;
+      --accent-light: #a07cfa;
+      --text-light: #e0e0e0;
+    }
+
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background-color: var(--dark-bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text-light);
+    }
+
+    form {
+      background-color: var(--mid-bg);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(107, 72, 255, 0.2);
+      width: 100%;
+      max-width: 450px;
+      margin: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--accent-light);
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      background-color: #2a3147;
+      color: var(--text-light);
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    input[type="submit"] {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 12px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: var(--accent-light);
+    }
+
+    .error-message {
+      color: #ff4d4d;
+      font-size: 0.85em;
+      margin-top: -5px;
+      margin-bottom: 10px;
+    }
+
+    select:invalid {
+      color: #888;
+    }
+
+    @media (max-width: 500px) {
+      form {
+        padding: 20px;
+      }
+      h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form id="registrationForm" action="#" method="post">
+    <h2>Join Edu-Hack</h2>
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" required />
+    <div class="error-message" id="nameError"></div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+    <div class="error-message" id="emailError"></div>
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required />
+    <div class="error-message" id="dobError"></div>
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" required pattern="^\d{10}$" />
+    <div class="error-message" id="phoneError"></div>
+    <label for="course">Select Course:</label>
+    <select id="course" name="course" required>
+      <option value="" disabled selected>Select a course</option>
+      <option value="Advanced JavaScript & Node.js">Advanced JavaScript & Node.js</option>
+      <option value="AI & Neural Networks">AI & Neural Networks</option>
+      <option value="Cloud-Native Development">Cloud-Native Development</option>
+      <option value="UX Research & Design">UX Research & Design</option>
+      <option value="Cybersecurity Essentials">Cybersecurity Essentials</option>
+    </select>
+    <div class="error-message" id="courseError"></div>
+    <label for="whyus">Why Choose Edu-Hack?</label>
+    <textarea id="whyus" name="whyus" required></textarea>
+    <div class="error-message" id="whyusError"></div>
+    <input type="submit" value="Register" />
+  </form>
+
+  <script>
+    const form = document.getElementById("registrationForm");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent default submission
+      let valid = true;
+      let errorMessages = [];
+
+      // Validate Name
+      const name = document.getElementById("name");
+      const nameError = document.getElementById("nameError");
+      if (name.value.trim() === "") {
+        nameError.textContent = "Full name is required.";
+        errorMessages.push("Name is required.");
+        valid = false;
+      } else if (!/^[a-zA-Z\s]{2,}$/.test(name.value.trim())) {
+        nameError.textContent = "Name must contain at least 2 letters and no numbers/special characters.";
+        errorMessages.push("Invalid name format.");
+        valid = false;
+      } else {
+        nameError.textContent = "";
+      }
+
+      // Validate Email
+      const email = document.getElementById("email");
+      const emailError = document.getElementById("emailError");
+      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      if (!emailPattern.test(email.value.trim())) {
+        emailError.textContent = "Please enter a valid email address.";
+        errorMessages.push("Invalid email address.");
+        valid = false;
+      } else {
+        emailError.textContent = "";
+      }
+
+      // Validate Date of Birth
+      const dob = document.getElementById("dob");
+      const dobError = document.getElementById("dobError");
+      const today = new Date();
+      const inputDate = new Date(dob.value);
+      const minDate = new Date(today.getFullYear() - 100, today.getMonth(), today.getDate());
+      const maxDate = new Date(today.getFullYear() - 16, today.getMonth(), today.getDate());
+      if (!dob.value) {
+        dobError.textContent = "Date of birth is required.";
+        errorMessages.push("Date of birth is required.");
+        valid = false;
+      } else if (inputDate < minDate || inputDate > maxDate) {
+        dobError.textContent = "You must be between 16 and 100 years old.";
+        errorMessages.push("Invalid date of birth.");
+        valid = false;
+      } else {
+        dobError.textContent = "";
+      }
+
+      // Validate Phone Number
+      const phone = document.getElementById("phone");
+      const phoneError = document.getElementById("phoneError");
+      const phonePattern = /^\d{10}$/;
+      if (!phonePattern.test(phone.value.trim())) {
+        phoneError.textContent = "Phone number must be exactly 10 digits.";
+        errorMessages.push("Invalid phone number.");
+        valid = false;
+      } else {
+        phoneError.textContent = "";
+      }
+
+      // Validate Course Selection
+      const course = document.getElementById("course");
+      const courseError = document.getElementById("courseError");
+      if (course.value === "") {
+        courseError.textContent = "Please select a course.";
+        errorMessages.push("Course selection is required.");
+        valid = false;
+      } else {
+        courseError.textContent = "";
+      }
+
+      // Validate Why Us
+      const whyus = document.getElementById("whyus");
+      const whyusError = document.getElementById("whyusError");
+      if (whyus.value.trim() === "") {
+        whyusError.textContent = "Please explain why you chose Edu-Hack.";
+        errorMessages.push("Why us response is required.");
+        valid = false;
+      } else if (whyus.value.trim().length < 10) {
+        whyusError.textContent = "Response must be at least 10 characters long.";
+        errorMessages.push("Why us response is too short.");
+        valid = false;
+      } else {
+        whyusError.textContent = "";
+      }
+
+      // Show alert based on validation
+      if (valid) {
+        alert("Form submitted successfully!\n\n" +
+              `Name: ${name.value}\n` +
+              `Email: ${email.value}\n` +
+              `Date of Birth: ${dob.value}\n` +
+              `Phone: ${phone.value}\n` +
+              `Course: ${course.value}\n` +
+              `Why Us: ${whyus.value}`);
+        form.reset();
+      } else {
+        alert("Form submission failed. Please fix the following errors:\n- " + errorMessages.join("\n- "));
+      }
+    });
+  </script>
+</body>
+</html>
